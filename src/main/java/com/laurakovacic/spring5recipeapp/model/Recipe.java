@@ -97,6 +97,14 @@ public class Recipe {
         this.image = image;
     }
 
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public Notes getNotes() {
         return notes;
     }
