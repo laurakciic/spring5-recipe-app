@@ -16,8 +16,8 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
-
-    // TODO: add difficulty as an enum
+    @Enumerated(value = EnumType.STRING)    // ORDINAL (as number) is default
+    private Difficulty difficulty;
     @Lob
     private Byte[] image;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")  // this recipe will be stored in a recipe property on the child class/set of ingredients
@@ -87,6 +87,14 @@ public class Recipe {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 
     public Byte[] getImage() {
