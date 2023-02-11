@@ -5,6 +5,21 @@
     <title>Recipes</title>
 </head>
 <body>
-    <h1>Recipes Index Page</h1>
+    <h2>Recipes</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="recipe : ${recipes}">
+            <td th:text="${recipe.id}"></td>
+            <td th:text="${recipe.description}"></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
