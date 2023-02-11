@@ -22,6 +22,9 @@ public class Recipe {
     private Byte[] image;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")  // this recipe will be stored in a recipe property on the child class/set of ingredients
     private Set<Ingredient> ingredients;
+    @ManyToMany
+    @JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
     @OneToOne(cascade = CascadeType.ALL)    // if we delete recipe we want to delete notes also
     private Notes notes;
 
@@ -111,6 +114,14 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public Notes getNotes() {
