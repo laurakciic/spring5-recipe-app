@@ -2,6 +2,7 @@ package com.laurakovacic.spring5recipeapp.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +11,7 @@ import java.util.Set;
 @Entity
 public class Recipe {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)     // underlying persistance framework will generate ID value
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     // underlying persistence framework will generate ID value
     private Long id;
     private String description;
     private Integer prepTime;
