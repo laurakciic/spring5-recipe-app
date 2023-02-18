@@ -1,5 +1,7 @@
 package com.laurakovacic.spring5recipeapp.services;
 
+import com.laurakovacic.spring5recipeapp.converters.RecipeCommandToRecipe;
+import com.laurakovacic.spring5recipeapp.converters.RecipeToRecipeCommand;
 import com.laurakovacic.spring5recipeapp.model.Recipe;
 import com.laurakovacic.spring5recipeapp.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,13 +23,19 @@ class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
     @BeforeEach
     void setUp() {
         // tells Mockito to scan this test class instance for any fields annotated with the @Mock annotation and
         // initialize those fields as mocks
         MockitoAnnotations.openMocks(this);
 
-        recipeServiceImpl = new RecipeServiceImpl(recipeRepository);
+        recipeServiceImpl = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
