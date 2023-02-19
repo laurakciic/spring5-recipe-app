@@ -3,7 +3,6 @@ package com.laurakovacic.spring5recipeapp.converters;
 import com.laurakovacic.spring5recipeapp.commands.IngredientCommand;
 import com.laurakovacic.spring5recipeapp.commands.UnitOfMeasureCommand;
 import com.laurakovacic.spring5recipeapp.model.Ingredient;
-import com.laurakovacic.spring5recipeapp.model.Recipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +42,7 @@ class IngredientCommandToIngredientTest {
         command.setDescription(DESCRIPTION);
         UnitOfMeasureCommand unitOfMeasureCommand = new UnitOfMeasureCommand();
         unitOfMeasureCommand.setId(UOM_ID);
-        command.setUnitOfMeasure(unitOfMeasureCommand);
+        command.setUom(unitOfMeasureCommand);
 
         // when
         Ingredient ingredient = converter.convert(command);
